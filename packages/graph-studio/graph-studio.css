@@ -1,0 +1,12 @@
+/* Host-level defaults; the figure's shadow DOM uses these inherited tokens. */
+mb-figure {
+  --mb-bg: #101923;
+  --mb-panel: #172532;
+  --mb-ink: #eaf2f7;
+  --mb-muted: #91a6b6;
+  --mb-edge: #526a7d;
+  --mb-node: #1b3546;
+  --mb-accent: #44d7c2;
+  --mb-highlight: #ffbd69;
+  --mb-focus: #9bd5ff;
+}
