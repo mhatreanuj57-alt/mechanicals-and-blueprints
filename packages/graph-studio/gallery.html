@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mechanicals &amp; Blueprints — Graph studies</title>
+  <style>
+    :root{color-scheme:dark;--paper:#0b131c;--panel:#101c27;--line:#233644;--ink:#edf5f8;--muted:#9fb1bd;--teal:#44d7c2;--amber:#ffbd69;font-family:Inter,ui-sans-serif,system-ui,sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0,#162c3b,var(--paper) 52%);color:var(--ink)}header{max-width:1180px;margin:auto;padding:54px 28px 34px;border-bottom:1px solid var(--line)}.brand{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:var(--teal);font-weight:800}.headline{font-size:clamp(38px,7vw,76px);line-height:.98;letter-spacing:-.065em;max-width:800px;margin:18px 0}.lede{font-size:18px;color:var(--muted);max-width:620px}.meta{display:flex;gap:12px;margin-top:24px;color:var(--muted);font-size:12px}.meta span{border:1px solid var(--line);padding:7px 10px;border-radius:30px}main{max-width:1180px;margin:0 auto;padding:34px 28px 70px}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));gap:18px}.tile{border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--panel) 88%,transparent);padding:12px}.tile-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 9px 12px}.tile h2{font-size:16px;margin:0;letter-spacing:-.02em}.tile p{margin:0;color:var(--muted);font-size:12px}.index{color:var(--teal);font:700 11px ui-monospace,monospace}mb-figure{--mb-bg:#111c26;--mb-panel:#182632;--mb-ink:#eaf2f7;--mb-muted:#92a7b5;--mb-edge:#526a7d;--mb-node:#1b3546;--mb-accent:#44d7c2;--mb-highlight:#ffbd69;--mb-focus:#9bd5ff}.footer{margin-top:24px;padding:22px;border:1px solid var(--line);border-radius:16px;color:var(--muted);line-height:1.7}.footer code{color:var(--teal)}a{color:var(--teal)}@media(max-width:560px){header,main{padding-left:16px;padding-right:16px}.tile{padding:7px}.meta{flex-wrap:wrap}}
+  </style>
+  <script type="module" src="../../dist/register.js"></script>
+</head>
+<body>
+  <header><div class="brand">Mechanicals &amp; Blueprints / Field notes 001</div><h1 class="headline">Graphs you can<br>step inside.</h1><p class="lede">Ten small working studies. Advance an algorithm, inspect the live state, or make your own graph in the playground.</p><div class="meta"><span>10 interactive figures</span><span>0 runtime dependencies</span><span>Keyboard ready</span></div></header>
+  <main><section class="gallery" aria-label="Graph model gallery">
+    <article class="tile"><div class="tile-head"><div><h2>Graph fundamentals</h2><p>Vertices, edges, degree</p></div><span class="index">01</span></div><mb-figure model="graph-basics"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Adjacency list &amp; matrix</h2><p>Two views, one underlying graph</p></div><span class="index">02</span></div><mb-figure model="representations"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Breadth-first search</h2><p>Queue and shortest unweighted layers</p></div><span class="index">03</span></div><mb-figure model="bfs"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Depth-first search</h2><p>Stack and branch exploration</p></div><span class="index">04</span></div><mb-figure model="dfs"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Weighted shortest path</h2><p>Dijkstra relaxation and distances</p></div><span class="index">05</span></div><mb-figure model="dijkstra"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Topological ordering</h2><p>Directed acyclic dependencies</p></div><span class="index">06</span></div><mb-figure model="topological-sort"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Connected components</h2><p>Separate islands in one graph</p></div><span class="index">07</span></div><mb-figure model="components"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Cycle detection</h2><p>Find a visited neighbor off the parent edge</p></div><span class="index">08</span></div><mb-figure model="cycle-detection"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Minimum spanning tree</h2><p>Kruskal with union-find</p></div><span class="index">09</span></div><mb-figure model="minimum-spanning-tree"></mb-figure></article>
+    <article class="tile"><div class="tile-head"><div><h2>Graph playground</h2><p>Add vertices, connect, remove, reset</p></div><span class="index">10</span></div><mb-figure model="playground"></mb-figure></article>
+  </section><aside class="footer"><strong>Embed a study</strong><br><code>import "mechanicals-and-blueprints";</code><br><code>&lt;mb-figure model="dijkstra"&gt;&lt;/mb-figure&gt;</code><br><br>Customize with CSS tokens such as <code>--mb-accent</code> and <code>--mb-highlight</code>. The figure still makes sense with motion disabled and has no audio.</aside></main>
+</body></html>
