@@ -1,0 +1,11 @@
+# NOTICE
+
+## Upstream source: Anatomy
+
+The creator kit, browser/audit scripts, and portions of the agent workflow in this repository are adapted from **Anatomy**, Copyright (c) 2026 Ryan, https://github.com/wheresryan22/anatomy. Anatomy is distributed under the MIT License. Its original `LICENSE` is retained unchanged. Adaptations in this product include graph-focused skill guidance, product naming, examples, and integration documentation.
+
+## Upstream reference: anatomy-figures
+
+The package structure and framework-free custom-element integration were informed by **anatomy-figures**, Copyright (c) 2026 Ryan, https://github.com/wheresryan22/anatomy-figures, MIT License. No code or models from that repository are included in this package; the graph models here are original implementations.
+
+The Mechanicals & Blueprints graph package, gallery, creator page, and graph model implementations are new work for this product and are licensed under MIT in `LICENSE-MB`. Upstream examples retained under `examples/` remain examples from Anatomy and are not claimed as original product models.
