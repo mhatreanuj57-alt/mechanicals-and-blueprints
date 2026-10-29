@@ -1,0 +1,28 @@
+name: Figure or model issue
+description: Report a graph model, interaction, accessibility, or rendering issue.
+labels: ["figure"]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Model or file
+      placeholder: breadth-first search
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: Include the graph data or algorithm state when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and viewport
