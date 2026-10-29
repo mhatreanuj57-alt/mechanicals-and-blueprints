@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Figure workshop — Mechanicals &amp; Blueprints</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b131c;--panel:#13212d;--line:#2a4050;--ink:#edf5f8;--muted:#9fb1bd;--teal:#44d7c2;--amber:#ffbd69;font-family:Inter,ui-sans-serif,system-ui,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink)}header,main{width:min(1120px,100% - 36px);margin:auto}header{padding:38px 0 26px;border-bottom:1px solid var(--line)}.brand{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}h1{margin:12px 0 6px;font-size:clamp(32px,5vw,52px);letter-spacing:-.05em}.lede{color:var(--muted);margin:0;max-width:65ch}.layout{display:grid;grid-template-columns:minmax(240px,.7fr) minmax(0,1.5fr);gap:18px;padding:24px 0 54px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}.panel h2{font-size:16px;margin:0 0 14px}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:12px;color:var(--muted)}input,select,textarea,button{font:inherit;color:var(--ink);background:#0e1923;border:1px solid #344c5d;border-radius:8px;padding:9px 11px}textarea{width:100%;min-height:140px;resize:vertical;font:12px/1.5 ui-monospace,monospace}button{cursor:pointer}button:hover{border-color:var(--teal)}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--teal);outline-offset:2px}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.note{font-size:12px;line-height:1.6;color:var(--muted)}.preview{min-width:0}.preview mb-figure{--mb-bg:#101923;--mb-panel:#172532;--mb-ink:#eaf2f7;--mb-muted:#91a6b6;--mb-edge:#526a7d;--mb-node:#1b3546;--mb-accent:#44d7c2;--mb-highlight:#ffbd69;--mb-focus:#9bd5ff}.preview-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin:0 0 10px}.preview-head h2{margin:0}.badge{font-size:11px;color:var(--teal)}@media(max-width:760px){.layout{grid-template-columns:1fr}.panel{order:1}.preview{order:0}header,main{width:min(100% - 28px,1120px)}}
+  </style>
+  <script type="module" src="./dist/register.js"></script>
+</head>
+<body>
+  <header><div class="brand">Mechanicals &amp; Blueprints / Figure workshop</div><h1>Build a graph study.</h1><p class="lede">Choose a starting model, edit the graph in the preview, refine its title and description, then export the model data for your figure source.</p></header>
+  <main class="layout">
+    <section class="panel" aria-labelledby="setup-heading">
+      <h2 id="setup-heading">Study setup</h2>
+      <div class="field"><label for="model">Starting model</label><select id="model"><option value="playground">Editable graph playground</option><option value="graph-basics">Graph fundamentals</option><option value="representations">Adjacency list &amp; matrix</option><option value="bfs">Breadth-first search</option><option value="dfs">Depth-first search</option><option value="dijkstra">Weighted shortest path</option><option value="topological-sort">Topological ordering</option><option value="components">Connected components</option><option value="cycle-detection">Cycle detection</option><option value="minimum-spanning-tree">Minimum spanning tree</option></select></div>
+      <div class="field"><label for="title">Figure title</label><input id="title" value="My graph study" maxlength="70"></div>
+      <div class="field"><label for="description">Short description</label><input id="description" value="An interactive graph model." maxlength="140"></div>
+      <div class="actions"><button id="apply">Update preview</button><button id="export">Export graph JSON</button></div>
+      <div class="field"><label for="output">Export preview</label><textarea id="output" readonly aria-live="polite" placeholder="Your graph model JSON will appear here."></textarea></div>
+      <p class="note">For an editable graph, choose the playground. Add vertices, select two vertices to connect them, or remove a selected vertex. The exported JSON contains title, description, directedness, vertices, and edges.</p>
+    </section>
+    <section class="preview" aria-labelledby="preview-heading"><div class="preview-head"><h2 id="preview-heading">Live preview</h2><span class="badge">Model-backed · keyboard operable</span></div><mb-figure id="figure" model="playground"></mb-figure></section>
+  </main>
+  <script type="module">
+    const figure = document.querySelector("#figure");
+    const modelSelect = document.querySelector("#model");
+    const title = document.querySelector("#title");
+    const description = document.querySelector("#description");
+    const output = document.querySelector("#output");
+    modelSelect.addEventListener("change", () => { figure.setAttribute("model", modelSelect.value); title.value = figure.model.title; description.value = figure.model.description; });
+    document.querySelector("#apply").addEventListener("click", () => { figure.model.title = title.value.trim() || "Untitled graph study"; figure.model.description = description.value.trim() || "Interactive graph model."; figure.render(); });
+    document.querySelector("#export").addEventListener("click", () => {
+      const data = JSON.stringify({ title: figure.model.title, description: figure.model.description, directed: figure.model.directed, nodes: figure.model.nodes, edges: figure.model.edges }, null, 2);
+      output.value = data;
+      const url = URL.createObjectURL(new Blob([data], { type: "application/json" }));
+      const link = Object.assign(document.createElement("a"), { href: url, download: "mechanicals-and-blueprints-graph.json" });
+      link.click(); URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
