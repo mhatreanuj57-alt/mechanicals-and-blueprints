@@ -1,0 +1,28 @@
+{
+  "name": "mechanicals-and-blueprints",
+  "version": "0.1.0",
+  "description": "Framework-free interactive graph explainers and creator tools",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhatreanuj57-alt/mechanicals-and-blueprints.git"
+  },
+  "homepage": "https://github.com/mhatreanuj57-alt/mechanicals-and-blueprints#readme",
+  "bugs": {
+    "url": "https://github.com/mhatreanuj57-alt/mechanicals-and-blueprints/issues"
+  },
+  "keywords": ["graphs", "algorithms", "visualization", "custom-elements", "agent-skill", "data-structures"],
+  "sideEffects": ["./dist/index.js", "./dist/register.js"],
+  "exports": {
+    ".": "./dist/index.js",
+    "./register": "./dist/register.js",
+    "./styles.css": "./dist/graph-studio.css"
+  },
+  "files": ["dist", "packages/graph-studio/README.md", "packages/graph-studio/gallery.html", "LICENSE", "LICENSE-MB", "NOTICE"],
+  "scripts": {
+    "build": "node packages/graph-studio/build.mjs",
+    "test": "node --test packages/graph-studio/*.test.mjs"
+  },
+  "engines": { "node": ">=20.10" }
+}
